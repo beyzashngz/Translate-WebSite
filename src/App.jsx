@@ -25,8 +25,7 @@ const App = () => {
     dispatch(getLanguages());
   }, []);
 
-  // apidan gelen diziyi bizden istenilen formata çevirmek
-  // nesnelerin code ve name değerilerini label ve value'ya çevirdik
+
   const formatted = useMemo(
     () =>
       langState.languages?.map((i) => ({
@@ -41,19 +40,14 @@ const App = () => {
   };
 
   const handleSwap = () => {
-    // select alanlarındaki veirleri yer değiş
     setSourceLang(targetLang);
     setTargetLang(sourceLang);
-
-    // store'daki veriyi state'e aktar
     setText(translateState.answer);
-
-    // state'deki veriyi store'a  aktar
     dispatch(setAnswer(text));
   };
 
   return (
-    <div className="bg-red-500 min-h-screen text-white grid place-items-center">
+    <div className="bg-purple-200 min-h-screen text-white grid place-items-center">
       <div className="w-[80vw] max-w-[1100px] flex flex-col justify-center">
         <h1 className="text-center text-5xl font-semibold mb-7 text-white-500">
           Çeviri +{" "}
@@ -71,7 +65,7 @@ const App = () => {
 
           <button
             onClick={handleSwap}
-            className="rounded py-2 px-6 bg-blue-500 text-white transition hover:ring-2 hover:bg-blue-700"
+            className="rounded py-2 px-6 bg-gray-500 text-white transition hover:ring-2 hover:bg-gray-700"
           >
             Değiş
           </button>
@@ -110,7 +104,7 @@ const App = () => {
 
         <button
           onClick={handleTranslate}
-          className="rounded-md py-3 px-5 text-[17px] font-semibold cursor-pointer bg-blue-500	 mt-3 hover:ring-2 hover:bg-blue-700 transition"
+          className="rounded-md py-3 px-5 text-[17px] font-semibold cursor-pointer bg-gray-500	 mt-3 hover:ring-2 hover:bg-gray-700 transition"
         >
           Çevir
         </button>
